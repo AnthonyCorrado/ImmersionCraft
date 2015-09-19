@@ -5,7 +5,9 @@ This directory contains the following subdirectories...
  * modules - these modules are loaded into custom plugins using the `require()` function.
  * plugins - contains ScriptCraft's bundled plugins as well as custom plugings. Note: modules which are automatically loaded and globally-namespaced at startup)
 
-Below is the relavant ScriptCraft readme notes...
+At some point I will add an index here of all the custom plugins and modules needed for those.
+
+Below are the relavant ScriptCraft readme notes...
 
 If you are a minecraft modder who wants to develop simple mods then the `plugins` location is where you should probably place your .js files. 
 
