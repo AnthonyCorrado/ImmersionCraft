@@ -1,4 +1,4 @@
-## Designing Plugins and Modules for Minecraft That Change the World. One Minecraft Event at a Time.
+## Designing Plugins and Modules That Change the World. One Minecraft Event at a Time.
 
 This directory contains the following subdirectories...
 
