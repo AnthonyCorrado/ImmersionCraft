@@ -1,28 +1,26 @@
 (function() {
   'use strict';
 
-  var http = require('http');
-  var getColor = require('custom/light-service');
+  var http = require('http'),
+    toggle = require('immersion/lighting/toggle-on-off'),
+    colorToHue = require('immersion/lighting/color-to-hue'),
+    hueSatBri = require('immersion/lighting/light-values'),
+    events = require('events-helper-bukkit');
 
-  var lights = function(light_id, state, color) {
-    var urlPath = 'http://<bridge_ip>/api/newdeveloper/lights/' + light_id + '/state';
-    var hue = getColor(color);
-    var isOn = state === 'on' ? true : false;
-    var selectedHue = hue || 15000;
+  //   var hue = colorToHue(color);
 
-    echo('lights called');
-    echo('light hue is ' + hue);
+  // var toggleColor = true;
+  // events.blockBreak(function() {
+  //   hueSatBri.changeValues(3, 55000, 230, 240);
+  //   toggleColor = !toggleColor;
+  // });
 
-    http.request({
-      url: urlPath,
-      method: 'PUT',
-    params: {"on": isOn, "hue": selectedHue}
-    },
+  // var toggleOn = false;
+  // events.blockBreak(function() {
+  //   setTimeout(function() {
+  //     toggle.isLightOn(3, toggleOn);
+  //     toggleOn = !toggleOn;
+  //   }, 400);
+  // });
 
-    function( responseCode, responseBody ) {
-      // console.log(JSON.stringify(responseBody));
-    });
-  };
-
-  exports.lights = lights;
 })();
