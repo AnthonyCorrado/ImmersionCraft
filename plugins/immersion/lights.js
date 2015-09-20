@@ -7,7 +7,9 @@
     hueSatBri = require('immersion/lighting/light-values'),
     events = require('events-helper-bukkit');
 
-  //   var hue = colorToHue(color);
+  var toggleOn = true;
+
+    // var hue = colorToHue(color);
 
   // var toggleColor = true;
   // events.blockBreak(function() {
@@ -22,5 +24,10 @@
   //     toggleOn = !toggleOn;
   //   }, 400);
   // });
+  events.blockRedstone(function(evt, cancel) {
+    console.log(evt);
+    toggle.isLightOn(3, toggleOn);
+    toggleOn = !toggleOn;
+  });
 
 })();

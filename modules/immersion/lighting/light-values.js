@@ -25,7 +25,7 @@
     },
     function( responseCode, responseBody ) {
       if (responseCode != 200) {
-        console.log('There was an error in the toggle power request');
+        console.log('There was an error in the lighting value change');
       }
       console.log(JSON.stringify(responseBody));
     });
