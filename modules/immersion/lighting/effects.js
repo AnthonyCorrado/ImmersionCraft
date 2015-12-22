@@ -1,7 +1,6 @@
 /**
- * Adjusts a single light's on/off state
+ * Toggles state of light once and back 
  * @param {Number} lightId
- * @param {Boolean} is light on?
  * @return {Object} response object
  */
 (function() {
@@ -9,25 +8,23 @@
 
   var http = require('http');
 
-  var isLightOn = function(light_id, state, trans) {
+  var flash = function(light_id) {
     var urlPath = 'http://<bridge_ip>/<name>/lights/' + light_id + '/state';
-    trans = trans || 4;
 
     http.request({
       url: urlPath,
       method: 'PUT',
-    params: {
-      "on": state,
-      "transitiontime": trans
+      params: {
+        "alert": "select"
       }
     },
     function( responseCode, responseBody ) {
       if (responseCode != 200) {
-        console.log('There was an error in the toggle power request');
+        console.log('There was an error in the flash effect');
       }
       console.log(JSON.stringify(responseBody));
     });
   };
 
-  exports.isLightOn = isLightOn;
+  exports.flash = flash;
 })();
