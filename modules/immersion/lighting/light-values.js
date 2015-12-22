@@ -4,6 +4,7 @@
  * @param {Number} hue (0 - 65535) 
  * @param {Number} saturation (0 - 254)
  * @param {Number} brightness (1 - 254)
+ * @param {Number} transitiontime (1 x 100ms)
  * @return {Object} response object
  */
 (function() {
@@ -11,8 +12,9 @@
 
   var http = require('http');
 
-  var changeValues = function(light_id, hue, sat, bri) {
-    var urlPath = 'http://<bridge_ip>/api/newdeveloper/lights/' + light_id + '/state';
+  var changeValues = function(light_id, hue, sat, bri, trans) {
+    trans = trans || 4;
+    var urlPath = 'http://<bridge_ip>/<name>/lights/' + light_id + '/state';
 
     http.request({
       url: urlPath,
@@ -20,7 +22,8 @@
       params: {
         "hue": hue,
         "sat": sat,
-        "bri": bri
+        "bri": bri,
+        "transitiontime": trans
       }
     },
     function( responseCode, responseBody ) {
